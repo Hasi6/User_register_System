@@ -153,13 +153,21 @@ session_start();
 		else if($rand==15){
 			$profile_pictures = "images/profile_pictures/default/head_wet_asphalt.png";
 		}
-		else if($rand==16){
+		else{
 			$profile_pictures = "images/profile_pictures/default/head_wisteria.png";
 		}
 
 		$query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$username','$email','$password','$date','$profile_pictures','0','0','no',',')");
-		}
+		
 		array_push($error_array,"<span style='color:#14C800;'>You,re all set Go a head and loging!</span><br>");
+
+		//clear session variables
+		$_SESSION['fname'] = "";
+		$_SESSION['lname'] = "";
+		$_SESSION['email'] = "";
+		$_SESSION['cemail'] = "";
+		}
+
 	}
 }
 
